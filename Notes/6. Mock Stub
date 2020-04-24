@@ -1,0 +1,31 @@
+To test Mock stub install the dummy project from ===> https://github.com/gothinkster/react-redux-realworld-example-app
+Post installation, Run the server locally using npm start
+
+1. To mock an API we need to use cy.server() and cy.route()
+2. Need to store the mock in seperate json file under fixture folder
+
+Example:
+
+describe('Mocks', function() {
+
+    beforeEach(function(){
+        cy.visit('http://localhost:4100/login')
+        cy.get('input[type="email"]').type('divig93@gmail.com')
+        cy.get('input[type="password"]').type('annaianai')
+        cy.get('button[type="submit"]').click()
+        cy.server()	//Starting the server
+    })
+    
+    it('Tags tesing', function() {
+        cy.route('GET','**/tags','fixture:tags.json') //Loading the tags.json where it has mocked tag
+        cy.contains('Global Feed').should('be.visible')
+        cy.get('.tag-list').should('contain','cypress').and('contain','testing').and('contain','automation')
+    })
+
+    it('Articles tesing', function() {
+        cy.route('GET','**/articles*','fixture:articles.json')  //Loading the articles.json where it has mocked articles
+        cy.get('.article-preview').should('contain','No articles are here... yet.')
+        cy.contains('Global Feed').click()
+        cy.get('.col-md-9').should('contain','Vignesh Article')
+    })
+}) 

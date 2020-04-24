@@ -1,0 +1,12 @@
+Cypress Folder structure:	
+--------------------------
+
+1. fixtures ==> Test Data
+2. integration ==> Test Case
+3. plugins ==> Even Listener
+4. screenshot ==> Captured screenshot
+5. support ==> Reusable scripts
+6. video ==> Captured video
+7. node modules ==> Modules for cypress
+8. cypress.json ==> Cyrpess configurations such as base url or env 
+9. package.json ==> Dependancies for Cypress

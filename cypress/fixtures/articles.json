@@ -1,0 +1,22 @@
+{
+    "articles": [
+        {
+            "title": "Vignesh Article",
+            "slug": "article-1-jtbnf0",
+            "body": "Article 1 Description",
+            "createdAt": "2020-04-19T10:45:21.704Z",
+            "updatedAt": "2020-04-19T10:45:21.704Z",
+            "tagList": [],
+            "description": "Article 1 Subtitle",
+            "author": {
+                "username": "rkant91",
+                "bio": null,
+                "image": "https://static.productionready.io/images/smiley-cyrus.jpg",
+                "following": false
+            },
+            "favorited": false,
+            "favoritesCount": 2
+        }
+    ],
+    "articlesCount": 1
+}

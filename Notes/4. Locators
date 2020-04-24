@@ -1,0 +1,125 @@
+To Make Cypress commands on auto suggestion:
+---------------------------------------------
+
+1. /// <reference types="cypress"/>   ====> Can use this line at top of every TC
+2. Can create a jsconfig.json file in the root folder and paste following
+
+{
+    "include": [
+        "./node_modules/cypress",
+        "cypress/**/*.js"
+    ]
+}
+
+
+Locators:
+---------
+
+1. cy.get(SELECTOR) ===> Cypress only accepts CSS as the selectors
+
+Example:
+
+/// <reference types="cypress"/>
+
+describe('MyTestSuite', function() {
+    
+    it('Verify title of the page', function() {
+        cy.visit("https://demo.nopcommerce.com/")
+        cy.get("input#small-searchterms").type("Apple MacBook Pro 13-inch")
+        cy.get("input.search-box-button").click()
+        cy.get("input[value='Add to cart']").click()
+        cy.get("input#addtocart_4_EnteredQuantity").clear().type("4")
+        cy.get("input#add-to-cart-button-4").click()
+        cy.wait(5000)
+        cy.get("#topcartlink a").click()
+        cy.wait(3000)
+        cy.get(".product-unit-price").contains("$1,800.00")
+    })
+})
+
+
+UI Elements:
+---------------
+
+1. Input box  ==> type() is used to enter the value in input box
+2. Radio button ==> be.checked() is used to verify if the radio button is selected or not
+3. Checkbox ==> check() is used to click on the checkbox
+4. Drop down ==> Using select() can handle static drop down and click() for dynamic dropdown
+
+Example:
+
+/// <reference types="cypress"/>
+
+describe('UI elements', function() {
+    
+    it('Verify Input box & radio button', function() {
+        cy.visit("http://demo.automationtesting.in/Register.html")
+        cy.title().should('eq','Register')
+        //ImputBoxes
+        cy.get("input[ng-model='FirstName']").should('be.visible').should('be.enabled').type("vignesh")
+        cy.get("input[ng-model='LastName']").should('be.visible').should('be.enabled').type("srinivasan")
+        //RadioButtons
+        cy.get("input[value='Male']").should('be.visible').should('not.be.checked').click()
+        cy.get("input[value='FeMale']").should('be.visible').should('not.be.checked').click()
+        cy.get("input[value='Male']").should('be.visible').should('not.be.checked').click()
+    })
+
+    it('Verify checkbox', function() {
+        //CheckBoxes
+        cy.get("#checkbox1").check().should('be.checked').and('have.value','Cricket')
+        cy.get("#checkbox2").check().should('be.checked').and('have.value','Movies')
+        cy.get("#checkbox3").check().should('be.checked').and('have.value','Hockey')
+        cy.get("#checkbox1").uncheck().should('not.be.checked')
+        cy.get("#checkbox2").uncheck().should('not.be.checked')
+        cy.get("#checkbox3").uncheck().should('not.be.checked')
+        //To select multiple checkbox in one go
+        cy.get("input[type='checkbox']").check(['Cricket','Hockey'])
+    })
+
+    it('Verify static dropdown', function() {
+        cy.get("#Skills").select('Android').should('have.value','Android')
+    })
+
+    it('Verify multi select dropdown', function() {
+        cy.get("#msdd").click()
+        cy.get(".ui-corner-all").contains('English').click()
+        cy.get(".ui-corner-all").contains('Japanese').click()
+    })
+
+    it('Verify dynamic dropdown', function() {
+        cy.get("span[role='combobox']").click({force:true})
+        cy.get(".select2-search__field").type('Ind')
+        cy.get(".select2-search__field").type('{enter}')
+    })
+})
+
+
+ALERTS:
+--------
+
+By Default Cypress will close the Alert window. No need to write code to handle it. 
+
+1. Simple Alert ==> using event window:alert we can get the text in the alert box
+2. Confirmation Alert ==> using event window:confirm we can get the text in the alert box
+
+Example:
+
+/// <reference types="cypress"/>
+
+describe('Alert', function() {
+    
+    it('Handling Alert', function() {
+        cy.visit("http://demo.automationtesting.in/Alerts.html")
+        //General Alert
+        cy.get("div#OKTab>button").click()
+        cy.on('window:alert',(str)=>{
+            expect(str).to.equal('I am an alert box!')
+        })
+        //Confirmation Alert
+        cy.get("a[href='#CancelTab']").click()
+        cy.get("div#CancelTab>button").click()
+        cy.on('window:confirm',(str)=>{
+            expect(str).to.equal('Press a Button !')
+        })
+    })
+})

@@ -1,0 +1,44 @@
+To Launch Test Runner:
+----------------------
+
+1. Open the project in VS code
+2. Go to inbuild terminal
+3. Enter the following command ===> npx cypress open
+4. It will open the testrunner window
+
+
+To Run Test in Test Runner:
+----------------------------
+
+1. On the left pane, click on the test case ==> automatically it will start running
+
+
+To run test from terminal:
+---------------------------
+
+1. npx cypres run ====> Run all spec files in the project.It wil run all the tc's present in the example folder with headless mode. By default runs on electron browser.
+
+2. To create run command, add in package.json under the scripts as follows 
+
+			"scripts": {
+			    "open": "cypress open",
+			    "test":"cypress run"
+			  }
+
+So to open test runner GUI can use ===> npm run open 
+And to run all test in the proj ===> npm run test
+
+Note: TO RUN ANY COMMAND FROM PACKAGE.JSON NEED TO USE NPM RUN INSTEAD OF NPX
+
+3. Run all the spec files in the folder ====> npx cypres run --spec "cypress/integration/examples/**/*" 		(OR)
+											  npm run test --spec "cypress/integration/examples/**/*"
+
+
+4. Run one spec file ====> npx cypres run --spec "cypress/integration/examples/FirstTest.spec.js" 		(OR)
+						   npm run test --spec "cypress/integration/examples/FirstTest.spec.js"											  
+
+5. To run tc with headed mode(Electron browser) ====> npx cypres run --headed   (OR) npm run test --headed
+
+6. To run tc with headed mode in Chrome browser  ====> npx cypres run --browser chrome   (OR) npm run test --browser chrome
+
+

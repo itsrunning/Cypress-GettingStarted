@@ -1,0 +1,48 @@
+1. Install Mocha ===> npm install mocha --save-dev
+2. Install cypress-multi-reporters ===> npm install cypress-multi-reporters --save-dev
+3. Install mochawesome ===> npm install mochawesome --save-dev
+4. Install mochawesome-merge ===> npm install mochawesome-merge --save-dev
+5. Install mochawesome-report-generator ===> npm install mochawesome-report-generator --save-dev
+6. Add below reports cofig in the cypress.json
+				"reporter": "cypress-multi-reporters",
+			    "reporterOptions": {
+			        "reporterEnabled": "mochawesome",
+			        "mochawesomeReporterOptions": {
+			            "reportDir": "cypress/reports/mocha",
+			            "quite": true,
+			            "overwrite": false,
+			            "html": false,
+			            "json": true
+			        }
+    }
+
+
+Note: Mochawesome Report does not work with latest version. So update the package.json with following version
+
+				"devDependencies": {
+			    "cypress": "^4.3.0",
+			    "cypress-multi-reporters": "^1.2.3",
+			    "mocha": "^5.2.0",
+			    "mochawesome": "^4.1.0",
+			    "mochawesome-merge": "^2.0.1",
+			    "mochawesome-report-generator": "^4.0.1"
+  }
+
+7. Add below commands in the package.json under scripts
+
+	"scripts": "cypress run",
+    "clean:reports": "rm -R -f cypress/reports && mkdir cypress/reports && mkdir cypress/reports/mochareports",
+    "pretest": "npm run clean:reports",
+    "combine-reports": "mochawesome-merge --reportDir cypress/reports/mocha > cypress/reports/mochareports/report.json",
+    "generate-report": "marge cypress/reports/mochareports/report.json -f report -o cypress/reports/mochareports",
+    "posttest": "npm run combine-reports && npm run generate-report",
+    "test": "npm run scripts || npm run posttest"
+
+8. In terminal run =====> npm run test
+
+
+
+
+
+
+

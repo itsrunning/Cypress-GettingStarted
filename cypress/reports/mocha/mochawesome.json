@@ -1,0 +1,169 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 4,
+    "passes": 1,
+    "pending": 2,
+    "failures": 1,
+    "start": "2020-04-23T06:30:46.490Z",
+    "end": "2020-04-23T06:30:46.946Z",
+    "duration": 456,
+    "testsRegistered": 4,
+    "passPercent": 50,
+    "pendingPercent": 50,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "f3f3fc41-6123-47fa-a8d0-695333a9c025",
+      "title": "",
+      "fullFile": "cypress/integration/examples/TC_12_ReportTest.spec.js",
+      "file": "cypress/integration/examples/TC_12_ReportTest.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "905bdea2-e1cb-4a63-9a38-4d65af8db216",
+          "title": "Report Test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "TC1 - Pass",
+              "fullTitle": "Report Test TC1 - Pass",
+              "timedOut": null,
+              "duration": 31,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "console.log(\"This is a pass TC\");",
+              "err": {},
+              "uuid": "a8b18187-68eb-4084-89a5-05ed8a16de9d",
+              "parentUUID": "905bdea2-e1cb-4a63-9a38-4d65af8db216",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC2 - Fail",
+              "fullTitle": "Report Test TC2 - Fail",
+              "timedOut": null,
+              "duration": 363,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "console.log(\"This is a Failed TC\");\nassert.fail();",
+              "err": {
+                "message": "AssertionError: assert.fail()",
+                "estack": "AssertionError: assert.fail()\n    at Function.fn.<computed> [as fail] (http://localhost:56127/__cypress/runner/cypress_runner.js:128643:34)\n    at Context.runnable.fn (http://localhost:56127/__cypress/runner/cypress_runner.js:144790:24)\n    at callFn (http://localhost:56127/__cypress/runner/cypress_runner.js:88160:21)\n    at http://localhost:56127/__cypress/runner/cypress_runner.js:148766:28\n    at PassThroughHandlerContext.finallyHandler (http://localhost:56127/__cypress/runner/cypress_runner.js:5613:23)\n    at PassThroughHandlerContext.tryCatcher (http://localhost:56127/__cypress/runner/cypress_runner.js:9059:23)\n    at Promise._settlePromiseFromHandler (http://localhost:56127/__cypress/runner/cypress_runner.js:6994:31)\n    at Promise._settlePromise (http://localhost:56127/__cypress/runner/cypress_runner.js:7051:18)\n    at Promise._settlePromise0 (http://localhost:56127/__cypress/runner/cypress_runner.js:7096:10)\n    at Promise._settlePromises (http://localhost:56127/__cypress/runner/cypress_runner.js:7176:18)\n    at Promise._fulfill (http://localhost:56127/__cypress/runner/cypress_runner.js:7120:18)\n    at Promise._settlePromise (http://localhost:56127/__cypress/runner/cypress_runner.js:7064:21)\n    at Promise._settlePromise0 (http://localhost:56127/__cypress/runner/cypress_runner.js:7096:10)\n    at Promise._settlePromises (http://localhost:56127/__cypress/runner/cypress_runner.js:7176:18)\n    at Promise._fulfill (http://localhost:56127/__cypress/runner/cypress_runner.js:7120:18)",
+                "diff": null
+              },
+              "uuid": "d91bdfa5-c35a-4b7d-83e6-c6ba877e09cb",
+              "parentUUID": "905bdea2-e1cb-4a63-9a38-4d65af8db216",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC3 - Skip",
+              "fullTitle": "Report Test TC3 - Skip",
+              "timedOut": null,
+              "duration": 0,
+              "state": "pending",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": true,
+              "context": null,
+              "code": "",
+              "err": {},
+              "uuid": "80fa9f5c-f0a5-4277-b4e8-43b0df9667c6",
+              "parentUUID": "905bdea2-e1cb-4a63-9a38-4d65af8db216",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "TC4 - NonImplemented",
+              "fullTitle": "Report Test TC4 - NonImplemented",
+              "timedOut": null,
+              "duration": 0,
+              "state": "pending",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": true,
+              "context": null,
+              "code": "",
+              "err": {},
+              "uuid": "9e92765a-5dd5-419b-9b6e-7802561c9b2f",
+              "parentUUID": "905bdea2-e1cb-4a63-9a38-4d65af8db216",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "a8b18187-68eb-4084-89a5-05ed8a16de9d"
+          ],
+          "failures": [
+            "d91bdfa5-c35a-4b7d-83e6-c6ba877e09cb"
+          ],
+          "pending": [
+            "80fa9f5c-f0a5-4277-b4e8-43b0df9667c6",
+            "9e92765a-5dd5-419b-9b6e-7802561c9b2f"
+          ],
+          "skipped": [],
+          "duration": 394,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "5.2.0"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false
+      },
+      "version": "4.1.0"
+    },
+    "marge": {
+      "options": {
+        "id": "default",
+        "reportDir": "cypress/reports/mocha",
+        "quite": true,
+        "overwrite": false,
+        "html": false,
+        "json": true
+      },
+      "version": "4.1.0"
+    }
+  }
+}

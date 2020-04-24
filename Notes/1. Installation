@@ -1,0 +1,8 @@
+Cypress Installation:
+---------------------
+
+1. Install node & npm
+2. Create a Cypress working folder
+3. Open terminal and go to that folder and type ====> npm init -y
+4. npm install cypress --save-dev
+5. Open the workspace folder in any IDE such as VS code
