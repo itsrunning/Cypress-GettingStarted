@@ -8,4 +8,4 @@ Installation:
 4. To install cypress ===> npm install cypress --save-dev
 5. Open the workspace folder in any IDE such as VS code ==> Cypress folder will be available
 
-ATTACHED A SEPERATE FOLDER WITH MY NOTES FOR. PLEASE REFER THE SAME
+ATTACHED A SEPERATE FOLDER WITH MY NOTES. PLEASE REFER THE SAME
